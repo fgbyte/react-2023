@@ -1,0 +1,7 @@
+body {
+  background-color: rgb(38, 78, 107);
+  color: whitesmoke;
+  display: grid;
+  place-content: center;
+  font-family: system-ui;
+}

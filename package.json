@@ -1,0 +1,14 @@
+{
+  "name": "react-2023",
+  "version": "1.0.0",
+  "description": "last react docs based",
+  "main": "index.js",
+  "author": "fgbyte",
+  "license": "MIT",
+  "devDependencies": {
+    "standard": "^17.1.0"
+  },
+  "eslintConfig": {
+    
+  }
+}
