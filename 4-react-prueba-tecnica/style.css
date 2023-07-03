@@ -1,0 +1,24 @@
+body {
+  background-color: #222;
+  color: whitesmoke;
+  font-family: system-ui;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  place-content: center;
+  align-items: center;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+
+main img {
+  margin: 0 auto;
+  min-width: 200;
+  width: 400px;
+}

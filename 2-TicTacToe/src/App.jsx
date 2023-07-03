@@ -14,8 +14,8 @@ function App() {
     //? Llamando board del LocalStorage
     const boardFromStorage = window.localStorage.getItem("board");
     return boardFromStorage
-    ? JSON.parse(boardFromStorage)//si esta en el LS, el estado del board va a ser el del LS
-    : Array(9).fill(null)//si no esta, el estado del board va a ser vacío
+      ? JSON.parse(boardFromStorage) //si esta en el LS, el estado del board va a ser el del LS
+      : Array(9).fill(null); //si no esta, el estado del board va a ser vacío
   });
   //array de 9 posiciones todas vacías
   //es un estado para que cada vez que se introduzca un valor en una position poder hacer set del nuevo
@@ -24,14 +24,13 @@ function App() {
   //turn son los valores X u O, el default es TURNS.X
   const [turn, setTurn] = useState(() => {
     //? Llamando turn del LocalStorage
-    const turnFromStorage = window.localStorage.getItem('turn')
+    const turnFromStorage = window.localStorage.getItem("turn");
     //si tengo algo en el LS lo uso, sino uso el por default = TURNS.X
-    return turnFromStorage ?? TURNS.X //esto esta muy pro👀, ?? mira si es null o undefined
-  })
+    return turnFromStorage ?? TURNS.X; //esto esta muy pro👀, ?? mira si es null o undefined
+  });
 
   //? Estado para establecer un ganador
   const [winner, setWinner] = useState(null); //null es q no hay ganador, false es que hay empate
-
 
   //? Function resetGame lleva los Estados a sus valores primarios y limpia el LS
   const resetGame = () => {
@@ -39,8 +38,8 @@ function App() {
     setTurn(TURNS.X);
     setWinner(null);
 
-    window.localStorage.removeItem('board')
-    window.localStorage.removeItem('turn')
+    window.localStorage.removeItem("board");
+    window.localStorage.removeItem("turn");
   };
 
   //? Function principal para actualizar los estados en el juego
@@ -61,8 +60,8 @@ function App() {
     setTurn(newTurn); //se actualiza el estado de turn con el newTurn
 
     //? Guardando juego en el LocalStorage
-    window.localStorage.setItem('board', JSON.stringify(newBoard))
-    window.localStorage.setItem('turn', turn)
+    window.localStorage.setItem("board", JSON.stringify(newBoard));
+    window.localStorage.setItem("turn", turn);
 
     //? revisar si hay ganador y poner el estado que corresponde
     const newWinner = checkWinner(newBoard);
