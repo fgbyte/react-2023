@@ -22,3 +22,7 @@ main img {
   min-width: 200;
   width: 400px;
 }
+
+main {
+  margin: auto 23px;
+}
