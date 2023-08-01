@@ -1,19 +1,21 @@
 // @ts-check
-const { test, expect } = require('@playwright/test');
+import { test, expect } from '@playwright/test';
 
-test('has title', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
+const CAT_PREFIX_IMAGE_URL = 'https://cataas.com'
+const LOCALHOST_URL = 'http://localhost:5173/';
 
-  // Expect a title "to contain" a substring.
-  await expect(page).toHaveTitle(/Playwright/);
+test('app show random fact and image', async ({ page }) => {
+  await page.goto(LOCALHOST_URL);
+
+  const text = await page.getByRole('paragraph')
+  const image = await page.getByRole('img')
+
+  const textContent = await text.textContent();
+  const imageSrc = await image.getAttribute('src');
+
+  await expect(textContent?.length).toBeGreaterThan(0);
+  await expect(imageSrc?.startsWith(CAT_PREFIX_IMAGE_URL)).toBeTruthy();
 });
 
-test('get started link', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
 
-  // Click the get started link.
-  await page.getByRole('link', { name: 'Get started' }).click();
-
-  // Expects the URL to contain intro.
-  await expect(page).toHaveURL(/.*intro/);
-});
+//esto prueba de manera e2e que se esta renderizando todo correctamente en la pagina
