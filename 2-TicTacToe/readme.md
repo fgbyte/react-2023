@@ -2,4 +2,6 @@
 
 Con persistencia de datos en el Local Storage
 
-Usaremos useState a fondo asi como el useEffect
+## Hooks que usaremos
+
+useState a fondo asi como el useEffect
