@@ -14,7 +14,7 @@ function App() {
 
   //? Debounce using useCallback
   const debouncedGetMovies = useCallback(
-    //el useCallback hace q el debounce no se repita para cada letra al pasar los 500ms
+    //el useCallback asegura que el debounce sobre (getMovies({search})) solo se ejecute cuando getMovies cambie
     debounce((search) => {
       console.log("search");
       getMovies({ search });
