@@ -1,32 +1,37 @@
-import Products from "./components/Products";
-import Header from "./components/Header";
-import { products as initialProducts } from "./mocks/products.json";
 import { useState } from "react";
+import Products from "./components/Products";
+import { products as initialProducts } from "./mocks/products.json";
+import Header from "./components/Header";
 
 function App() {
-  const [products] = useState(initialProducts);
+     const [products] = useState(initialProducts)
 
-  //* filtrando por categorías y precios
-  const [filters, setFilters] = useState({
-    category: "all",
-    minPrice: 0,
-  }); //valores per default
+     //**FILTRAR**// por category & price
+     //TODO: ESTO ES DE JUNIORS REPASAR
+     const [filters, setFilters] = useState({
+         category: 'all',
+         minPrice: 0
+        })
+        //este ☝️ estado lo vamos a modificar con el setFilters cuando hagamos un filtrado personalizado
+     const filterProducts = (products) => {
+        return products.filter(product => {
+            return (
+                //va a mostrar los que cumplan con:
+                product.price >= filters.minPrice &&
+                (
+                   filters.category === 'all' ||
+                   product.category === filters.category
+                )
+            )
+        })
+     }
 
-  //los initialProducts va a pasar por este filtro que muestra solo los que tengan un price mayor a 0 y con una categoría valida
-  const filterProducts = (products) => {
-    return products.filter((product) => {
-      return (
-        product.price >= filters.minPrice &&
-        (filters.category === "all" || product.category === filters.category)
-      ); //si todo esto se valida, se pinta
-    });
-  };
-
-  const filteredProducts = filterProducts(products);
+     const filteredProducts = filterProducts(products)
+     //estos filtrados son los que se pasan al component
 
   return (
     <>
-      <Header />
+      <Header changeFilters={setFilters} />
       <Products products={filteredProducts} />
     </>
   );

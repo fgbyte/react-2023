@@ -1,7 +1,7 @@
 import "./Products.css";
 import { AddToCartIcon } from "./Icons";
 
-export default function Products({ products }) {
+const Products = ({ products }) => {
   return (
     <main className="products">
       <ul>
@@ -9,7 +9,10 @@ export default function Products({ products }) {
           <li key={product.id}>
             <img src={product.thumbnail} alt={product.title} />
             <div>
-              <strong>{product.title}</strong> <span> - ${product.price}</span>
+              <strong>{product.title}</strong> - ${product.price}
+            </div>
+            <div>
+              <p>Rating: {product.rating}⭐</p>
             </div>
             <div>
               <button>
@@ -21,4 +24,6 @@ export default function Products({ products }) {
       </ul>
     </main>
   );
-}
+};
+
+export default Products;

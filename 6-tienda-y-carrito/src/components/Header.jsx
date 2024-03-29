@@ -1,10 +1,12 @@
 import Filters from "./Filters";
 
-export default function Header() {
+const Header = ({ changeFilters }) => {
   return (
     <header>
-      <h1>React Shop🛒</h1>
-      <Filters />
+      <h1>Shopping Cart 🛒</h1>
+      <Filters onChange={changeFilters} />
     </header>
   );
-}
+};
+
+export default Header;
