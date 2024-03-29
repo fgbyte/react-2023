@@ -10,6 +10,11 @@ const [minPrice, setMinPrice] = useState(0)
 const minPriceFIlterId = useId()
 const categoryFilterId = useId()
 
+// console.log({
+//   minPriceFIlterId,
+//   categoryFilterId
+// })
+
 const handleChangeMinPrice = (event) => {
   //esto huele mal
   //DOS FUENTES DE LA VERDAD
