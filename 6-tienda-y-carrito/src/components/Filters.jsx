@@ -1,52 +1,46 @@
-import { useId, useState } from 'react'
-import './Filters.css'
+import { useId, useState } from "react";
+import { useFilters } from "../hooks/useFilters";
+import "./Filters.css";
+
+const Filters = () => {
+
+  //** useId para asociar ids de formularios con elementos */
+  const minPriceFilterId = useId();
+  const categoryFilterId = useId();
+
+  //** para mostrar los filtros del context */
+  const { filters, setFilters } = useFilters();//estado global
+  //se encuentran en el customHook useFilters
 
 
-const Filters = ({ onChange }) => {
-//** para mostrar el range de precio con números
-const [minPrice, setMinPrice] = useState(0)
+  const handleChangeMinPrice = (event) => {
+    setFilters((prevState) => ({
+      ...prevState,
+      minPrice: event.target.value,
+    }));
+  };
 
-//** useId */
-const minPriceFIlterId = useId()
-const categoryFilterId = useId()
-
-// console.log({
-//   minPriceFIlterId,
-//   categoryFilterId
-// })
-
-const handleChangeMinPrice = (event) => {
-  //esto huele mal
-  //DOS FUENTES DE LA VERDAD
-  setMinPrice(event.target.value)
-  onChange(prevState => ({
-    ...prevState,
-    minPrice: event.target.value
-  }))
-}
-
-//esto funciona pero huele mal
-const handleChangeCategory = (event) => {
-   //! estamos pasando la function de actualizar estado nativa de React a un componente hijo
-  onChange(prevState => ({
-    ...prevState,
-    category: event.target.value
-  }))
-}
-
+  const handleChangeCategory = (event) => {
+    setFilters((prevState) => ({
+      ...prevState,
+      category: event.target.value,
+    }));
+  };
 
   return (
     <section className="filters">
       <div>
-        <label htmlFor={minPriceFIlterId}>Price</label>
-        <input type="range"
-          id={minPriceFIlterId}
-          min='0'
-          max='1000'
-          step='10'
+        <label htmlFor={minPriceFilterId}>Price</label>
+        <input
+          type="range"
+          id={minPriceFilterId}
+          min="0"
+          max="1000"
+          step="10"
           onChange={handleChangeMinPrice}
+          value={filters.minPrice}
         />
-        <span>${minPrice}</span>
+        <span>${filters.minPrice}</span>
       </div>
 
       <div>
@@ -58,7 +52,7 @@ const handleChangeCategory = (event) => {
         </select>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Filters
+export default Filters;

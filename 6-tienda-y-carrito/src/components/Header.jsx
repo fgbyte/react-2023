@@ -1,10 +1,10 @@
 import Filters from "./Filters";
 
-const Header = ({ changeFilters }) => {
+const Header = () => {
   return (
     <header>
       <h1>Shopping Cart 🛒</h1>
-      <Filters onChange={changeFilters} />
+      <Filters />
     </header>
   );
 };

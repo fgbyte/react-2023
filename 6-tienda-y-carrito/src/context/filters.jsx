@@ -4,12 +4,13 @@ import { createContext, useState } from "react";
 export const FiltersContext = createContext();
 // 4. 👆 este es e que tenemos que consumir con useContext desde App.jsx
 
-// 2. CREAR EL PROVIDER para proveer el CONTEXT, "es un componente"
+// 2. CREAR EL PROVIDER para proveer el CONTEXT, "es un componente Singleton"
+
 export function FiltersProvider({ children }) {
   //estado para que esto sea dinámico
   const [filters, setFilters] = useState({
     category: "all",
-    minPrice: 0,
+    minPrice: 250,
   });
 
   return (
