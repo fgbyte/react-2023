@@ -1,19 +1,18 @@
 import { useFilters } from "../hooks/useFilters";
+import { useCart } from "../hooks/useCart";
 import "./Footer.css";
 
 const Footer = () => {
-  const { filters } = useFilters()
+  const { filters } = useFilters();
+  const { cart } = useCart();
 
   return (
     <footer className="footer">
-      <h4>
-        Prueba tecnica de React ⚛️ -<span>@midudev</span>
-      </h4>
-      <h5>Shopping Cart con useID, useContext & useReducer</h5>
-      <p>Visualizando filters solo en modo dev 👇</p>
-      {
-        JSON.stringify(filters, null, 2)
-      }
+      
+      <h5>Shopping Cart🛒 con useID, useContext & useReducer⚛️</h5>
+      <p>Solo en modo dev 👇</p>
+      {JSON.stringify(filters, null, 2)}
+      {/* {JSON.stringify(cart, null, 2)} */}
     </footer>
   );
 };
