@@ -1,4 +1,4 @@
-import { useId, useState } from "react";
+import { useId } from "react";
 import { useFilters } from "../hooks/useFilters";
 import "./Filters.css";
 

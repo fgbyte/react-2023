@@ -9,7 +9,7 @@ import { products as initialProducts } from "./mocks/products.json";
 
 function App() {
 	//sacar las functions de nuestro customHook useFilters
-	const { filters, filterProducts } = useFilters();
+	const { filterProducts } = useFilters();
 
 	//estos filtrados son los que se pasan al component
 	const filteredProducts = filterProducts(initialProducts);

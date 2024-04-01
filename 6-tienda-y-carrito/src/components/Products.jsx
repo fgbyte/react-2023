@@ -26,6 +26,7 @@ const Products = ({ products }) => {
 							</div>
 							<div>
 								<button
+									type="button"
 									style={{ backgroundColor: isProductInCart ? "red" : "#09f" }}
 									onClick={() => {
 										isProductInCart
