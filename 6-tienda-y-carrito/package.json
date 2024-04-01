@@ -1,22 +1,24 @@
 {
-  "name": "vite-project",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "just-debounce-it": "^3.2.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
-  },
-  "devDependencies": {
-    "@types/react": "^18.2.15",
-    "@types/react-dom": "^18.2.7",
-    "@vitejs/plugin-react-swc": "^3.3.2",
-    "vite": "^4.4.5"
-  }
+	"name": "vite-project",
+	"private": true,
+	"version": "0.0.0",
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"build": "vite build",
+		"preview": "vite preview",
+		"lint": "biome check --apply ./src."
+	},
+	"dependencies": {
+		"just-debounce-it": "^3.2.0",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "1.6.3",
+		"@types/react": "^18.2.15",
+		"@types/react-dom": "^18.2.7",
+		"@vitejs/plugin-react-swc": "^3.3.2",
+		"vite": "^4.4.5"
+	}
 }
