@@ -1,12 +1,13 @@
-import { navigate } from "./helpers/navigate";
+import Link from "./Link";
+console.log("Estoy alando about");
 
 const AboutPage = () => {
 	return (
 		<>
 			<h1>About</h1>
 			<img src="/vite.svg" alt="vite" />
-			<p>Soy fgbyte y esto es un clon de React Router</p>
-			<button onClick={() => navigate("/")}>Ira a la Home</button>
+			<p>Esto es Vite Pinga</p>
+			<Link to="/">Ir a la Home</Link>
 		</>
 	);
 };
